@@ -17,7 +17,7 @@
         function Main() {
             var n = parseInt(prompt("Enter the number of elements"), 10);
             if (isNaN(n) || n <= 0) {
-                alert("Invalid input. Please enter a positive number.");
+                alert(-Infinity);
                 return;
             }
 
@@ -26,7 +26,7 @@
                 arr[i] = parseInt(prompt("Enter element " + (i + 1)), 10);
             }
 
-            alert("Second highest number: " + secondHighest(arr));
+            alert(secondHighest(arr));
         }
 
         Main();
