@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Second Highest Number</title>
+    <title>Second Highest Number</title>
 </head>
-<body>	
-	<script>
-		function secondHighest(arr) {
-			
-			arr = arr.map(Number);
+<body>  
+    <script>
+        function secondHighest(arr) {
+            arr = arr.map(Number);
+            let uniqueSorted = [...new Set(arr)].sort((a, b) => b - a);
+            if (uniqueSorted.length < 2) {
+                return -Infinity;
+            }
+            return uniqueSorted[1];
+        }
 
-			
-			let uniqueSorted = [...new Set(arr)].sort((a, b) => b - a);
+        function Main() {
+            var n = parseInt(prompt("Enter the number of elements"), 10);
+            if (isNaN(n) || n <= 0) {
+                alert("Invalid input. Please enter a positive number.");
+                return;
+            }
 
-			
-			if (uniqueSorted.length < 2) {
-				return "-Infinity";
-			}
+            var arr = [];
+            for (var i = 0; i < n; i++) {
+                arr[i] = parseInt(prompt("Enter element " + (i + 1)), 10);
+            }
 
-			return uniqueSorted[1]; 
-		}
+            alert("Second highest number: " + secondHighest(arr));
+        }
 
-		function Main() {
-			var n = parseInt(prompt("Enter the number of elements"), 10);
-			if (isNaN(n) || n <= 0) {
-				alert("Invalid input. Please enter a positive number.");
-				return;
-			}
-
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i + 1));
-			}
-
-			alert("Second highest number: " + secondHighest(arr));
-		}
-
-		Main();
-	</script>
+        Main();
+    </script>
 </body>
 </html>
